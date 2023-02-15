@@ -653,10 +653,10 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                     await client.send_message(req_channel, f"#REQUESTED_LOGS \n\n**CONTANT NAME:**`{search}` \n**REQUESTED BY :** {message.from_user.first_name}\n**USER ID :** {message.from_user.id}", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Mark As Done", callback_data="close_data")]]))
-                if settings["spell_check"]:
-                    return await advantage_spell_chok(msg)
-                else:
-                    return
+                    if settings["spell_check"]:
+                        return await advantage_spell_chok(msg)
+                    else:
+                       return
         else:
             return
     else:
